@@ -58,7 +58,6 @@ def login():
 		menu() 
 	except (KeyError,IOError):
 		os.system('clear')
-		print logo
 		jalan(' \033[1;91mWarning: \033[1;93mTermux Old Version Install 0.63 to 0.83' )
 		jalan(' \033[1;91m   Note: \033[1;93mUse a New Account To Login' )
 		print "\033[1;93m❥•❥•❥•❥•❥•❥•❥•❥•\033[1;97mBlackMafia\033[1;93m❥•❥•❥•❥•❥•❥•❥•❥•"

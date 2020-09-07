@@ -11,3 +11,4 @@ try:
     br.open('https://m.facebook.com')
 except mechanize.URLError:
     print("\n\x1b[1;96mThere is no internet connection")
+print("Done!!")

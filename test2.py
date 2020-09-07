@@ -54,8 +54,7 @@ vuln = "\033[32mVuln"
 def login():
 	os.system('clear')
 	try:
-		toket = open('login.txt','r')
-		menu() 
+		toket = open('login.txt','r')		
 	except (KeyError,IOError):
 		os.system('clear')
 		jalan(' \033[1;91mWarning: \033[1;93mTermux Old Version Install 0.63 to 0.83' )
@@ -77,34 +76,35 @@ def login():
 		br.form['pass'] = pwd
 		br.submit()
 		url = br.geturl()
-		if 'save-device' in url:
-			try:
-				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
-				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
-				x=hashlib.new("md5")
-				x.update(sig)
-				a=x.hexdigest()
-				data.update({'sig':a})
-				url = "https://api.facebook.com/restserver.php"
-				r=requests.get(url,params=data)
-				z=json.loads(r.text)
-				unikers = open("login.txt", 'w')
-				unikers.write(z['access_token'])
-				unikers.close()
-				print '\n\x1b[1;95mLogin Successful...'
-				toket = open('login.txt','r')
-				print toket
-			except requests.exceptions.ConnectionError:
-				print"\n\x1b[1;91mThere is no internet connection"
-				keluar()
-		if 'checkpoint' in url:
-			print("\n\x1b[1;91mYour Account is on Checkpoint")
-			os.system('rm -rf login.txt')
-			time.sleep(1)
-			keluar()
-		else:
-			print("\n\x1b[1;93mPassword/Email is wrong")
-			os.system('rm -rf login.txt')
-			time.sleep(1)
-			login()
+		print url
+# 		if 'save-device' in url:
+# 			try:
+# 				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+# 				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
+# 				x=hashlib.new("md5")
+# 				x.update(sig)
+# 				a=x.hexdigest()
+# 				data.update({'sig':a})
+# 				url = "https://api.facebook.com/restserver.php"
+# 				r=requests.get(url,params=data)
+# 				z=json.loads(r.text)
+# 				unikers = open("login.txt", 'w')
+# 				unikers.write(z['access_token'])
+# 				unikers.close()
+# 				print '\n\x1b[1;95mLogin Successful...'
+# 				toket = open('login.txt','r')				
+# 			except requests.exceptions.ConnectionError:
+# 				print"\n\x1b[1;91mThere is no internet connection"
+# 				keluar()
+# 		if 'checkpoint' in url:
+# 			print("\n\x1b[1;91mYour Account is on Checkpoint")
+# 			os.system('rm -rf login.txt')
+# 			time.sleep(1)
+# 			keluar()
+# 		else:
+# 			print("\n\x1b[1;93mPassword/Email is wrong")
+# 			os.system('rm -rf login.txt')
+# 			time.sleep(1)
+# 			login()
 login()
+print toket

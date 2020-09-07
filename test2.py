@@ -92,8 +92,8 @@ def login():
 				unikers.write(z['access_token'])
 				unikers.close()
 				print '\n\x1b[1;95mLogin Successful...'
-				requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
-				menu()
+				toket = open('login.txt','r')
+				print toket
 			except requests.exceptions.ConnectionError:
 				print"\n\x1b[1;91mThere is no internet connection"
 				keluar()
@@ -108,5 +108,3 @@ def login():
 			time.sleep(1)
 			login()
 login()
-toket = open('login.txt','r')
-print toket

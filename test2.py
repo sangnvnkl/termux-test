@@ -57,18 +57,16 @@ def login():
 		toket = open('login.txt','r')		
 	except (KeyError,IOError):
 		os.system('clear')
-		jalan(' \033[1;91mWarning: \033[1;93mTermux Old Version Install 0.63 to 0.83' )
-		jalan(' \033[1;91m   Note: \033[1;93mUse a New Account To Login' )
-		print "\033[1;93m❥•❥•❥•❥•❥•❥•❥•❥•\033[1;97mBlackMafia\033[1;93m❥•❥•❥•❥•❥•❥•❥•❥•"
-		print('	   \033[1;97m■\x1b[1;93m❥•❥•❥•❥••LOGIN WITH FACEBOOK❥•❥•❥•❥••\x1b[1;97m■' )
+		jalan('   Note: Use a New Account To Login' )
+		print('	  	LOGIN WITH FACEBOOK' )
 		print('	' )
-		id = raw_input('\033[1;97m[+] \x1b[1;93mID/Email\x1b[1;97m: \x1b[1;93m')
-		pwd = raw_input('\033[1;97m[+] \x1b[1;93mPassword\x1b[1;97m: \x1b[1;93m')
+		id = raw_input('ID/Email: ')
+		pwd = raw_input('Password: ')
 		tik()
 		try:
 			br.open('https://m.facebook.com')
 		except mechanize.URLError:
-			print"\n\x1b[1;96mThere is no internet connection"
+			print"There is no internet connection"
 			keluar()
 		br._factory.is_html = True
 		br.select_form(nr=0)
